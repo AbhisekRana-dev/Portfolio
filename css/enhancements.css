@@ -1,0 +1,279 @@
+
+/* =========================================
+   PORTFOLIO ENHANCEMENTS
+   Keeps the original portfolio files intact
+========================================= */
+
+:root {
+  --extra-bg: #ffffff;
+  --extra-text: #222222;
+  --extra-card: #f5f7fb;
+  --extra-border: #e5e7eb;
+  --extra-accent: #ffbd39;
+  --extra-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Reading progress bar */
+
+#reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    #ffbd39,
+    #ff6b6b,
+    #7c4dff
+  );
+  z-index: 100000;
+  pointer-events: none;
+}
+
+/* Floating theme and top buttons */
+
+.portfolio-float-button {
+  position: fixed;
+  right: 22px;
+  z-index: 99999;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 50%;
+  background: var(--extra-accent);
+  color: #181818;
+  font-size: 23px;
+  font-weight: bold;
+  box-shadow: var(--extra-shadow);
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.portfolio-float-button:hover {
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: 0 12px 30px rgba(255, 189, 57, 0.35);
+}
+
+.portfolio-float-button:focus-visible {
+  outline: 3px solid #7158e2;
+  outline-offset: 4px;
+}
+
+#theme-toggle {
+  bottom: 85px;
+}
+
+#back-to-top {
+  bottom: 25px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(12px);
+}
+
+#back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Dark theme */
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --extra-bg: #12151c;
+  --extra-text: #f1f3f8;
+  --extra-card: #1d2330;
+  --extra-border: #384153;
+  --extra-shadow: 0 10px 30px rgba(0, 0, 0, 0.30);
+}
+
+html[data-theme="dark"] body {
+  background-color: var(--extra-bg);
+  color: var(--extra-text);
+}
+
+/* Common sections and content cards */
+
+html[data-theme="dark"] .ftco-section,
+html[data-theme="dark"] .ftco-footer,
+html[data-theme="dark"] .ftco-about,
+html[data-theme="dark"] .resume-wrap,
+html[data-theme="dark"] .services-1,
+html[data-theme="dark"] .blog-entry,
+html[data-theme="dark"] .contact-form,
+html[data-theme="dark"] .bg-light {
+  background-color: var(--extra-card) !important;
+  color: var(--extra-text);
+}
+
+html[data-theme="dark"] .heading-section h1,
+html[data-theme="dark"] .heading-section h2,
+html[data-theme="dark"] .heading-section h3,
+html[data-theme="dark"] .ftco-section h1,
+html[data-theme="dark"] .ftco-section h2,
+html[data-theme="dark"] .ftco-section h3,
+html[data-theme="dark"] .ftco-section h4,
+html[data-theme="dark"] .ftco-section p,
+html[data-theme="dark"] .ftco-section li,
+html[data-theme="dark"] .ftco-footer h2,
+html[data-theme="dark"] .ftco-footer p {
+  color: var(--extra-text);
+}
+
+html[data-theme="dark"] .about-info span,
+html[data-theme="dark"] .resume-wrap .text,
+html[data-theme="dark"] .services-1 .desc,
+html[data-theme="dark"] .blog-entry .text {
+  color: var(--extra-text);
+}
+
+html[data-theme="dark"] .navbar {
+  background-color: #171b24 !important;
+}
+
+html[data-theme="dark"] .navbar .nav-link,
+html[data-theme="dark"] .navbar-brand {
+  color: #f1f3f8 !important;
+}
+
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] select {
+  background-color: #242b39;
+  color: #ffffff;
+  border-color: #414b5e;
+}
+
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder {
+  color: #bdc5d4;
+}
+
+html[data-theme="dark"] .progress {
+  background-color: #384153;
+}
+
+html[data-theme="dark"] a:not(.btn):not(.navbar-brand):not(.nav-link) {
+  transition: color 0.2s ease;
+}
+
+html[data-theme="dark"] .resume-wrap,
+html[data-theme="dark"] .blog-entry,
+html[data-theme="dark"] .services-1 {
+  border-color: var(--extra-border);
+}
+
+/* Reveal animations */
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(25px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Interactive hover effects */
+
+.project,
+.services-1,
+.resume-wrap,
+.blog-entry {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.project:hover,
+.services-1:hover,
+.resume-wrap:hover,
+.blog-entry:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--extra-shadow);
+}
+
+/* Links and buttons */
+
+.btn {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--extra-accent);
+  outline-offset: 3px;
+}
+
+/* Mobile layout */
+
+@media (max-width: 767px) {
+  .portfolio-float-button {
+    right: 14px;
+    width: 44px;
+    height: 44px;
+  }
+
+  #theme-toggle {
+    bottom: 75px;
+  }
+
+  #back-to-top {
+    bottom: 18px;
+  }
+
+  .reveal-on-scroll {
+    transform: translateY(12px);
+  }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
+}
